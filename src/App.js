@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Routers from "./components/Router/BrowserRouter/Routers";
+import About from "./components/Counter/About";
+import Routing from "./components/Router/CreateBrowserRouter/Routing";
+import StopWatch from "./components/StopWatch/StopWatch";
+import Debouncing from "./components/Debouncing/Debouncing";
+import News from "./components/News/NewsList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+  // console.log(process.env.API_BASE_UEL);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Routing /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Routers />} />
+          <Route path="/counter" element={<About />} />
+          <Route path="/stopwatch" element={<StopWatch />} />
+          <Route path="/debouncing" element={<Debouncing />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
